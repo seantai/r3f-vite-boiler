@@ -11,13 +11,13 @@ export const Kamera = () => {
     store.loaded = true
   }, [])
 
-  const targetPosition = new Vector3()
-  useFrame(({ pointer }) => {
-    if (camRef.current) {
-      targetPosition.set(-Math.sin(pointer.x), -Math.atan(pointer.y), 4)
-      camRef.current.setPosition(targetPosition.x, targetPosition.y, targetPosition.z, true)
-    }
-  })
+  // const targetPosition = new Vector3()
+  // useFrame(({ pointer }) => {
+  //   if (camRef.current) {
+  //     targetPosition.set(-Math.sin(pointer.x), -Math.atan(pointer.y), 4)
+  //     camRef.current.setPosition(targetPosition.x, targetPosition.y, targetPosition.z, true)
+  //   }
+  // })
 
   return <CameraControls ref={camRef} makeDefault />
 }
