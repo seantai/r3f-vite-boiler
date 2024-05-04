@@ -1,8 +1,26 @@
+import { View } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
+import { CameraControls } from '@react-three/drei'
+
 export function Overlay() {
   return (
     <>
       <div className="absolute top-0 left-0 w-full h-full p-4 md:p-10 flex items-start flex-col  select-none overflow-hidden">
-        <div className="flex w-full p-0 items-center justify-between">
+        <View style={{ width: 200, height: 200 }}>
+          <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshNormalMaterial color="white" />
+          </mesh>
+          <OrbitControls />
+        </View>
+        <View>
+          <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshMatcapMaterial />
+          </mesh>
+          <CameraControls />
+        </View>
+        {/* <div className="flex w-full p-0 items-center justify-between">
           <p className="font-antonio text-5xl tracking-[-2px] font-bold">3D WEB</p>
           <p className="text-3xl">⍫</p>
         </div>
@@ -10,6 +28,7 @@ export function Overlay() {
           <div className="flex flex-col h-full text-sm">
             <p className="font-bold">R3F, Vite</p>
             <p>Interactive technology</p>
+            
             <p>—</p>
           </div>
           <p
@@ -32,7 +51,7 @@ export function Overlay() {
           </div>
 
           <p className="justify-self-end text-md italic">Berlin, San Francisco</p>
-        </div>
+        </div> */}
       </div>
       <div className="left-0 right-0 fixed mb-24 md:mb-14 text-center bottom-0 font-semibold tracking-tighter text-xl">
         <p className="cursor-pointer select-none">CLICK SOMEWHERE</p>
