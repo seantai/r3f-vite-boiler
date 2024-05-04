@@ -14,6 +14,9 @@ dependencies:
   framer-motion:
     specifier: ^11.1.7
     version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+  gsap:
+    specifier: ^3.12.5
+    version: 3.12.5
   lenis:
     specifier: ^1.0.45
     version: 1.0.45(react-dom@18.2.0)(react@18.2.0)
@@ -1434,6 +1437,10 @@ packages:
     resolution: {integrity: sha512-XSZEJ/i4dmz3Pmbnpsy3cKh7cotvFlBiZnDOwnj/05EwNp2XrhQ4XKJxT7/pDt4kp4YcpRSKz8eTV7S+mwV6MA==}
     dependencies:
       through2: 0.6.5
+    dev: false
+
+  /gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
     dev: false
 
   /has-flag@3.0.0:

@@ -7,6 +7,10 @@ import { Overlay } from './components/Overlay'
 import { RevealBento } from './components/RevealBento'
 import Lenis from 'lenis'
 import { addEffect } from '@react-three/fiber'
+import { ShaderView1 } from './components/ShaderView1'
+import { BG } from './components/BG'
+import Cursor from './components/Cursor'
+import { BG2 } from './components/BG2'
 
 const Scene = () => {
   const Suz = useGLTF('./Suz_Quad.glb')
@@ -35,7 +39,10 @@ export default function App() {
 
   return (
     <>
+      <Cursor />
+
       <div className="relative w-full h-full overflow-y-auto" ref={parent}>
+        {/* <BG2 /> */}
         <Canvas
           style={{
             position: 'fixed',
@@ -44,10 +51,11 @@ export default function App() {
             width: '100vw',
             height: '100vh',
             pointerEvents: 'none',
-            zIndex: 1000,
+            // zIndex: 1000,
             overflowY: 'auto'
             // ...style,
           }}
+          className="fadeInCanvas"
           // eventSource={document.body}
           // eventPrefix="client"
           eventSource={parent.current}>
@@ -55,6 +63,7 @@ export default function App() {
           <View.Port />
         </Canvas>
         <RevealBento />
+        {/* <BG /> */}
       </div>
     </>
   )

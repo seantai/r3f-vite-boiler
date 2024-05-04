@@ -18,7 +18,7 @@ export const TripMaterial = () => {
   useFrame((state) => {
     shaderRef.current.uniforms.time.value = state.clock.getElapsedTime()
     shaderRef.current.uniforms.mouse.value = state.pointer
-    console.log(state.pointer)
+    // console.log(state.pointer)
   })
 
   return (

@@ -7,10 +7,11 @@ import { SiGithub, SiTiktok, SiTwitter, SiYoutube } from 'react-icons/si'
 import { FooViewScene } from './FooViewScene'
 import { PerspectiveCamera, View } from '@react-three/drei'
 import { ShaderView1 } from './ShaderView1'
+import { Foo1 } from './Foo1'
 
 export const RevealBento = () => {
   return (
-    <div className="min-h-screen {/*bg-zinc-900*/} px-4 py-12 text-zinc-50 overflow-y-auto">
+    <div className="min-h-screen {/*bg-zinc-900*/} px-4 py-12 text-zinc-50 selection:text-[#8f8fbc] overflow-y-auto">
       <Logo />
       <motion.div
         initial="initial"
@@ -20,16 +21,18 @@ export const RevealBento = () => {
         }}
         className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4">
         {/*  */}
-        <Block className="col-span-12 md:col-span-6">
+        <Block className="col-span-12 md:col-span-7 border-zinc-700 bg-[#25252a]">
           <img src="https://api.dicebear.com/8.x/croodles-neutral/svg?seed=Felix" alt="avatar" className="mb-4 size-14 rounded-full bg-zinc-400" />
-          <h1 className="mb-12 text-4xl font-medium leading-tight">
-            Look like a <span className="text-zinc-400">frog. </span>
+          <h1 className="mb-12 text-4xl font-medium leading-tight text-[#6c6cb5]">
+            Leap like a <span className="text-zinc-300">frog</span>
+            <span className="text-[#6c6cb5]">. </span>
           </h1>
-          <a href="#" className="flex items-center gap-1 text-red-300 hover:underline">
-            Unveal it <FiArrowRight />
+          <a href="#" className="flex items-center gap-1 text-zinc-200 hover:underline">
+            <FiArrowRight />
+            <FiArrowRight />
+            <FiArrowRight />
           </a>
         </Block>
-
         {/*  */}
         {/* <Block className="col-span-12 md:col-span-6 p-0">
           <View className="h-full">
@@ -37,37 +40,61 @@ export const RevealBento = () => {
            
           </View>
         </Block> */}
-
-        <Block className="col-span-12 md:col-span-6 p-0 pointer-events-none">
-          <div className="relative h-0" style={{ paddingBottom: '56.25%' }}>
+        <Block className="col-span-12 md:col-span-5 p-0 pointer-events-none bg-[#27272A]">
+          <div className="relative h-0 m-6" style={{ paddingBottom: '56.25%' }}>
             <div className="absolute inset-0">
+              <View className="h-full">
+                <ShaderView1 angle={-Math.PI / 10.5} />
+              </View>
+            </div>
+          </div>
+        </Block>
+        {/* <Block className="col-span-12 md:col-span-6 my-auto pointer-events-none">
+          <div className="relative h-0" style={{ paddingBottom: '56.25%' }}>
+            <div className="absolute inset-0 ">
               <View className="h-full">
                 <ShaderView1 />
               </View>
             </div>
           </div>
-        </Block>
-        <Block className="col-span-12 md:col-span-6 p-0 row-span-2 pointer-events-none">
-          {/* <div className="relative h-0" style={{ paddingBottom: '56.25%' }}> */}
-          <div className="absolute inset-0  z-20">
-            <View className="h-[1000vh]  ">
-              <ShaderView1 />
+        </Block> */}
+
+        {/* <Block className="col-span-12 md:col-span-6 pointer-events-none p-0 m-0">
+          /~ <div className="relative h-0 m-10 ml-0" style={{ paddingBottom: '0.25%' }}> ~/
+          <div className="absolute inset-0">
+            <View className="h-full">
+              <Foo1 rotate={-Math.PI / 2} />
+              /~ <color attach="background" args={['#8f8fbc']} /> ~/
             </View>
-            {/* </div> */}
+            /~ </div> ~/
           </div>
+        </Block>*/}
+        <Block className="col-span-12 flex flex-col items-start justify-end gap-4 md:col-span-3">
+          <FiMapPin className="text-3xl text-zinc-400" />
+          <p className="text-center text-2xl font-semibold text-[#8f8fbc]">Just..</p>
         </Block>
-        <Block className="col-span-12 md:col-span-6 p-0 pointer-events-none">
-          <div className="relative h-0" style={{ paddingBottom: '56.25%' }}>
+
+        <Block className="col-span-12 flex flex-row items-start gap-4 md:col-span-3 bg-transparent">
+          <FiArrowRight className="text-3xl text-zinc-900" />
+          <div className="h-full px-[2px] bg-zinc-800"> </div>
+          <FiArrowRight className="text-3xl text-zinc-900" />
+          <div className="h-full px-[2px] bg-zinc-800"> </div>
+          {/* <FiArrowRight className="text-3xl text-zinc-900" /> */}
+          <div className="h-full px-[2px] bg-zinc-800"> </div>
+          <FiArrowRight className="text-3xl text-zinc-900" />
+        </Block>
+
+        <Block className="col-span-12 md:col-span-6 my-auto pointer-events-none pb-0 bg-zinc-800">
+          <div className="relative h-0 m-10 mb-0" style={{ paddingBottom: '56.25%' }}>
             <div className="absolute inset-0">
               <View className="h-full">
-                <ShaderView1 />
+                <Foo1 />
               </View>
             </div>
           </div>
         </Block>
 
         <AboutBlock />
-
         {/* <div className="col-span-12 row-span-2 md:col-span-2 ">
           <View className="w-full h-full">
             <ShaderView1 />
@@ -76,7 +103,6 @@ export const RevealBento = () => {
         {/* <View className="col-span-12 row-span-2 md:col-span-6 ">
           <FooViewScene />
         </View> */}
-        <LocationBlock />
         <EmailListBlock />
         <EmailListBlock />
         <EmailListBlock />
@@ -118,105 +144,11 @@ const Block = ({ className, ...rest }) => {
   )
 }
 
-const TwoStack = () => {
-  return (
-    <>
-      <Block
-        whileHover={{
-          rotate: '-2.5deg',
-          scale: 1.1
-        }}
-        className="col-span-6 bg-orange-300 md:col-span-3">
-        <a href="#" className="grid h-full place-content-center text-3xl text-white">
-          {/* <SiGithub /> */}
-        </a>
-      </Block>
-      <Block
-        whileHover={{
-          rotate: '-2.5deg',
-          scale: 1.1
-        }}
-        className="col-span-6 bg-zinc-50 md:col-span-3">
-        <a href="#" className="grid h-full place-content-center text-3xl text-black">
-          <SiTiktok />
-        </a>
-      </Block>
-    </>
-  )
-}
-
-const HeaderBlock = () => (
-  <Block className="col-span-12 row-span-2 md:col-span-6">
-    <img src="https://api.dicebear.com/8.x/lorelei-neutral/svg?seed=John" alt="avatar" className="mb-4 size-14 rounded-full" />
-    <h1 className="mb-12 text-4xl font-medium leading-tight">
-      Look like a <span className="text-zinc-400">frog. </span>
-    </h1>
-    <a href="#" className="flex items-center gap-1 text-red-300 hover:underline">
-      Unveal it <FiArrowRight />
-    </a>
-  </Block>
-)
-
-const SocialsBlock = () => (
-  <>
-    <Block
-      whileHover={{
-        rotate: '2.5deg',
-        scale: 1.1
-      }}
-      className="col-span-6 md:col-span-3 row-span-2">
-      <View className="w-full h-full">
-        <ShaderView1 />
-      </View>
-      {/* <a href="#" className="grid h-full place-content-center text-3xl text-white">
-        <SiYoutube />
-      </a> */}
-    </Block>
-    <Block
-      whileHover={{
-        rotate: '-2.5deg',
-        scale: 1.1
-      }}
-      className="col-span-6 bg-green-600 md:col-span-3">
-      <a href="#" className="grid h-full place-content-center text-3xl text-white">
-        <SiGithub />
-      </a>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: '-2.5deg',
-        scale: 1.1
-      }}
-      className="col-span-6 bg-zinc-50 md:col-span-3">
-      <a href="#" className="grid h-full place-content-center text-3xl text-black">
-        <SiTiktok />
-      </a>
-    </Block>
-    {/* <Block
-      whileHover={{
-        rotate: '2.5deg',
-        scale: 1.1
-      }}
-      className="col-span-6 bg-blue-500 md:col-span-3">
-      <a href="#" className="grid h-full place-content-center text-3xl text-white">
-        <SiTwitter />
-      </a>
-    </Block> */}
-  </>
-)
-
 const AboutBlock = () => (
   <Block className="col-span-12 text-3xl leading-snug">
     <p>
       My passion is talking about my passions. <span className="text-zinc-400"></span>
     </p>
-  </Block>
-)
-
-const LocationBlock = () => (
-  <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
-    <FiMapPin className="text-3xl" />
-    <p className="text-center text-lg text-zinc-400">Cyberspace</p>
   </Block>
 )
 
@@ -249,7 +181,7 @@ const Logo = () => {
       <path
         className="stroke"
         d="M20.19 5.99992C14.9 4.46992 7.46999 1.23992 4.80999 6.58992C1.89999 12.4699 7.04999 17.9999 10.41 22.3499C12.72 25.6499 11.9 28.4699 8.83999 31.6899C1.99999 38.8599 5.07999 48.4599 15.15 48.6199C19.54 48.6199 23.61 46.5399 27.48 44.4599C34.9 40.4599 39.48 43.4099 44.31 39.9399C47.55 37.6299 45.26 31.7299 43.92 28.1799C42.777 25.2112 42.7028 21.9374 43.71 18.9199C44.71 15.0999 45.35 8.91992 41.13 7.00992C39.21 6.28992 37 7.11992 35 6.46992C32.52 5.63992 31.28 2.70992 28.85 1.73992C24.12 -0.160081 24 6.99992 20.19 5.99992Z"
-        stroke="black"
+        stroke="#333"
         strokeWidth="0.5"
         strokeMiterlimit="10"></path>
       <path
@@ -267,7 +199,7 @@ const Logo = () => {
       <path
         className="stroke"
         d="M29.77 5.18995C31.85 5.99995 33 8.33995 35.1 9.04995C36.75 9.59995 38.65 8.93995 40.26 9.61995C43.86 11.16 43.62 16.44 42.75 19.68C42.0612 22.2746 42.1481 25.0142 43 27.56C44.09 30.68 45.81 35.67 43.06 37.72C38.94 40.79 34.96 38.62 28.63 41.81C25.35 43.47 21.92 45.13 18.25 45.02C9.89999 44.79 7.24999 36.82 12.57 30.78C14.97 28.08 15.65 25.65 13.75 22.9C11.14 19.11 6.99999 14.49 9.50999 9.57995C11.77 5.10995 17.91 7.57995 22.37 8.64995C25.55 9.44995 25.79 3.68995 29.77 5.18995Z"
-        stroke="black"
+        stroke=""
         strokeWidth="0.46"
         strokeMiterlimit="10"></path>
       <path
@@ -297,7 +229,7 @@ const Logo = () => {
       <path
         className="stroke"
         d="M31.24 10.9401C32.74 11.4201 33.7 12.8301 35.24 13.3401C36.42 13.7401 37.72 13.4501 38.84 13.9801C41.34 15.1401 41.53 18.6001 41.19 20.9801C40.9355 22.8521 41.0579 24.7561 41.55 26.5801C42.19 28.9801 42.99 32.4301 41.05 34.0601C38.18 36.4501 35.12 35.5501 30.62 37.4301C28.31 38.4301 25.94 39.2701 23.47 39.0701C18 38.6201 15.94 33.4601 18.85 29.3101C20.14 27.4601 20.48 25.7801 19.39 23.8601C17.84 21.1101 15.64 17.8601 17.39 14.6101C18.99 11.6101 22.98 12.6801 26.04 13.1701C28.15 13.4701 28.58 10.1001 31.24 10.9401Z"
-        stroke="black"
+        stroke=""
         strokeWidth="0.39"
         strokeMiterlimit="10"></path>
       <path
@@ -334,7 +266,7 @@ const Logo = () => {
         className="stroke"
         d="M33 17.8401C33.799 17.9614 34.5811 18.1762 35.33 18.4801C35.9095 18.6631 36.469 18.9043 37 19.2001C38.114 19.9682 38.8964 21.1292 39.19 22.4501C39.4307 23.3843 39.588 24.3381 39.66 25.3001C39.839 26.8214 39.4195 28.3526 38.49 29.5701C37.0097 31.1065 34.9919 32.0097 32.86 32.0901C31.7708 32.2472 30.6603 32.1583 29.61 31.8301C28.6665 31.539 27.8366 30.9623 27.2348 30.1796C26.633 29.3969 26.2889 28.4467 26.25 27.4601C26.2294 26.6093 26.1525 25.7608 26.02 24.9201C25.6787 23.4289 25.9258 21.8636 26.71 20.5501C27.1439 19.9819 27.6883 19.5074 28.3104 19.1551C28.9325 18.8028 29.6195 18.58 30.33 18.5001C31.25 18.3201 32 17.7401 33 17.8401Z"
         stroke="black"
-        strokeWidth="0.31"
+        strokeWidth="0.11"
         strokeMiterlimit="10"></path>
       <path
         className="stroke"

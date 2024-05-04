@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber'
 import { TripMaterial } from './TripMaterial'
 import { useEffect, useRef } from 'react'
 
-export const ShaderView1 = () => {
+export const ShaderView1 = ({ angle = 0 }) => {
   const { viewport } = useThree()
   console.log(viewport)
 
@@ -23,13 +23,13 @@ export const ShaderView1 = () => {
 
   return (
     <>
-      <mesh ref={ref}>
+      <mesh rotation-z={angle} ref={ref}>
         {/* <mesh scale={[viewport.width, viewport.height, 1]}> */}
         {/* <planeGeometry /> */}
         <planeGeometry args={[1, 1]} />
         <TripMaterial />
       </mesh>
-      <CameraControls makeDefault mouseButtons={{ left: 0, right: 0, middle: 0 }} />
+      <CameraControls makeDefault smoothTime={0.1} mouseButtons={{ left: 0, right: 0, middle: 0 }} />
       {/* <Sky /> */}
     </>
   )
